@@ -1,34 +1,34 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import styled from 'styled-components';
-
-import { COLORS } from '../../constants';
-import VisuallyHidden from '../VisuallyHidden';
+import React from "react";
+import styled from "styled-components";
+import { COLORS } from "../../constants";
+import VisuallyHidden from "../VisuallyHidden";
 
 const SIZES = {
   small: {
-    '--border-radius': '4px',
-    '--bar-height': '8px',
-    '--bar-padding': ''
+    "--border-radius": "4px",
+    "--bar-height": "8px",
+    "--bar-padding": "",
   },
   medium: {
-    '--border-radius': '4px',
-    '--bar-height': '12px',
-    '--bar-padding': ''
+    "--border-radius": "4px",
+    "--bar-height": "12px",
+    "--bar-padding": "",
   },
   large: {
-    '--border-radius': '8px',
-    '--bar-height': '16px',
-    '--bar-padding': '4px'
-  }
+    "--border-radius": "8px",
+    "--bar-height": "16px",
+    "--bar-padding": "4px",
+  },
 };
 
-const ProgressBar = ({ value, size="medium", ...delegated }) => {
+const ProgressBar = ({ value, size = "medium", ...delegated }) => {
   return (
     <>
       <VisuallyHidden>{value}% Progress</VisuallyHidden>
       <OuterBar style={SIZES[size]} {...delegated}>
-        <InnerBar><BarFill value={value} /></InnerBar>
+        <InnerBar>
+          <BarFill value={value} />
+        </InnerBar>
       </OuterBar>
     </>
   );
@@ -41,7 +41,7 @@ const OuterBar = styled.div`
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   border-radius: var(--border-radius);
   padding: var(--bar-padding);
-  
+
   overflow: hidden;
 `;
 
@@ -62,7 +62,7 @@ const BarFill = styled.div`
   left: 0;
   bottom: 0;
 
-  width: ${props => props.value + '%'};
+  width: ${(props) => props.value + "%"};
   background-color: ${COLORS.primary};
 `;
 

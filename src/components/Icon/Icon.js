@@ -5,8 +5,8 @@
  * API / which props it takes.
  */
 import React from 'react';
+import { AtSign, ChevronDown, Search } from 'react-feather';
 import styled from 'styled-components';
-import { Search, AtSign, ChevronDown } from 'react-feather';
 
 const icons = {
   search: Search,
