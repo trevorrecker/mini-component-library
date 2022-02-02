@@ -9,9 +9,9 @@ const Select = ({ label, value, onChange, children }) => {
 
   return (
     <SelectWrapper>
-      <SelectValue aria-hidden="true">{displayedValue}</SelectValue>
+      {displayedValue}
       <SelectIcon>
-        <Icon id="chevron-down" size="1.4em" strokeWidth={2} />
+        <Icon id="chevron-down" size="22px" strokeWidth={2} />
       </SelectIcon>
       <SelectInput value={value} onChange={onChange}>
         {children}
@@ -23,17 +23,22 @@ const Select = ({ label, value, onChange, children }) => {
 const SelectWrapper = styled.div`
   background: ${COLORS.transparentGray15};
   color: ${COLORS.gray700};
-  display: inline-block;
   position: relative;
   border: none;
+
+  width: fit-content;
   border-radius: 8px;
 
   padding: 12px 16px;
+  /* Increased padding for chevron icon */
+  padding-inline-end: calc(18px + 22px + 10px);
   font-size: 1rem;
 
   white-space: nowrap;
 
   &:focus-within {
+    /* Highlight wrapper when select is focused */
+    outline: 2px dotted #212121;
     outline: 2px auto Highlight;
     outline: 2px auto -webkit-focus-ring-color;
   }
@@ -55,7 +60,9 @@ const SelectInput = styled.select`
   bottom: 0;
   right: 0;
   width: 100%;
+  height: 100%;
 
+  /* Select input display view is replaced by the wrapper styles */
   opacity: 0;
 
   &::-ms-expand {
@@ -63,13 +70,14 @@ const SelectInput = styled.select`
   }
 `;
 
-const SelectValue = styled.div`
-  display: inline-block;
-`;
-
 const SelectIcon = styled.div`
-  display: inline-block;
-  margin: -0.4em 0 -0.4em 20px;
+  /* Vertically center icon */
+  position: absolute;
+  height: fit-content;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  margin: auto;
 `;
 
 export default Select;

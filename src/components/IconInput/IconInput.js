@@ -4,8 +4,6 @@ import { COLORS } from "../../constants";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
 
-
-
 const SIZES = {
   large: {
     fontSize: 18,
@@ -77,10 +75,8 @@ const InputIcon = styled.div`
 const Input = styled.input`
   box-sizing: border-box;
   width: var(--input-width);
-  padding: 0;
 
   font-size: var(--font-size);
-  line-height: var(--height);
   height: var(--height);
   color: inherit;
   font-weight: 700;
@@ -94,7 +90,7 @@ const Input = styled.input`
   outline-offset: 4px;
 
   &::placeholder {
-    font-weight: normal;
+    font-weight: initial;
     color: ${COLORS.gray500};
   }
 `;
